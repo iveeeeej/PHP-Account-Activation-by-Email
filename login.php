@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $user = $result->fetch_assoc();
 
-    if ($user){
+    if ($user && $user["account_activation_hash"] === null) {
 
     if(password_verify($_POST["password"], $user["password_hash"] )) {
         
